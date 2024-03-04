@@ -73,3 +73,10 @@ GROUP BY YEAR(`enrolment_date`);
 SELECT COUNT(`id`) AS `Numero di Insegnanti`,`office_address` AS `Indirizzo dell' Ufficio`
 FROM `teachers`
 GROUP BY `office_address`;
+
+
+/*Calcolare la media dei voti di ogni appello d'esame*/
+
+SELECT AVG(`vote`) AS `Voto Medio`, `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`;
