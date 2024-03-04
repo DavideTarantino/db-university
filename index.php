@@ -52,3 +52,10 @@ WHERE `level` = "magistrale";
 
 SELECT COUNT(`id`) AS `numero di diparimenti`
 FROM `departments`;
+
+
+/*Quanti sono gli insegnanti che non hanno un numero di telefono? (50)*/
+
+SELECT COUNT(`id`) AS `insegnanti con numero di telefono`
+FROM `teachers`
+WHERE `phone` IS NOT NULL;
