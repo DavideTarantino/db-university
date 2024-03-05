@@ -138,3 +138,19 @@ JOIN `course_teacher`
 ON `courses`.`id` = `course_teacher`.`course_id`
 JOIN `teachers`
 ON `teachers`.`id` = `course_teacher`.`teacher_id`;
+
+
+/*Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)*/
+
+SELECT `teachers`.`name` AS `Nome del Docente`, `teachers`.`surname` AS `Cognome del Docente` 
+FROM `teachers`
+JOIN `course_teacher`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`.`id`
+JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `departments`.`id` = 5
+GROUP BY `teachers`.`id`;
